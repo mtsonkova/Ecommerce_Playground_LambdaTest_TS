@@ -1,0 +1,12 @@
+// 
+baseUrl: https://ecommerce-playground.lambdatest.io/
+
+test Products: 
+HP LP3065
+iPod Nano
+HTC Touch HD
+iMac
+iPod Classic
+iPod Shuffle
+iPod Touch
+MacBook
