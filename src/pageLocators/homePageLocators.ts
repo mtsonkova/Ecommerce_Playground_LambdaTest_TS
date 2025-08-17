@@ -4,6 +4,7 @@ export const HomePageLocators = (page:Page) => {
     const searchResults = 'ul.dropdown-menu.autocomplete';
     const productsActions = 'div.product-action';
     const menuItems = 'ul.navbar-nav.horizontal';
+    const pricesTalbe = 'table.table.mb-0';
 
     return {
     mainHeader: {
@@ -25,10 +26,16 @@ export const HomePageLocators = (page:Page) => {
             },
             productsMiniCart: {
                 productsTable: page.locator('div.table-responsive > table.table'),
+                pricesTable: page.locator('table.table.mb-0'),
+                subTotal: page.locator(`${pricesTalbe} tr:nth-of-type(1) td:nth-of-type(2)`),
+                ecoTax: page.locator(`${pricesTalbe} tr:nth-of-type(2) td:nth-of-type(2)`),
+                vat: page.locator(`${pricesTalbe} tr:nth-of-type(3) td:nth-of-type(2)`),
+                total: page.locator(`${pricesTalbe} tr:nth-of-type(4) td:nth-of-type(2)`),
+
             },
             editCart: page.locator('#entry_217850 a'),
             checkoutBtn: page.locator('#entry_217851 a'),
-        }
+        },
     },
 
     mainMenu: {
@@ -39,6 +46,18 @@ export const HomePageLocators = (page:Page) => {
         megaMenu: page.getByText(' Mega Menu'),
         addOns: page.getByText(' AddOns'),
         myAccount: page.getByText(' My account'),
+    },
+
+    notificationBox: {
+        header: {
+            headerText: page.locator('div.toast-header span'),
+            closeBtn: page.locator('div.toast-header button span'),
+        },
+        body: {
+            bodyText: page.locator('div.toast-body p'),
+            viewCartBtn: page.locator('div.form-row a.btn-primary'),
+            checkoutBtn: page.locator('div.form-row a.btn-secondary'),
+        },
     },
 
     productsSection: {
