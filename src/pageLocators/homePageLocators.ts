@@ -5,6 +5,7 @@ export const HomePageLocators = (page:Page) => {
     const productsActions = 'div.product-action';
     const menuItems = 'ul.navbar-nav.horizontal';
     const pricesTalbe = 'table.table.mb-0';
+    const myAccountDropdown = 'ul.mz-sub-menu-96.dropdown-menu'
 
     return {
     mainHeader: {
@@ -46,6 +47,20 @@ export const HomePageLocators = (page:Page) => {
         megaMenu: page.getByText(' Mega Menu'),
         addOns: page.getByText(' AddOns'),
         myAccount: page.getByText(' My account'),
+        myAcocuntMenu: {
+            guestUser: {
+                logIn: page.locator(`${myAccountDropdown} li:nth-of-type(1) a`),
+                register: page.locator(`${myAccountDropdown} li:nth-of-type(2) a`),
+            },
+            loggedUser: {
+                dashboard: page.locator(`${myAccountDropdown} li:nth-of-type(1) a`),
+                myOrder: page.locator(`${myAccountDropdown} li:nth-of-type(2) a`),
+                return: page.locator(`${myAccountDropdown} li:nth-of-type(3) a`),
+                tracking: page.locator(`${myAccountDropdown} li:nth-of-type(4) a`),
+                myVouchers: page.locator(`${myAccountDropdown} li:nth-of-type(5) a`),
+                logout: page.locator(`${myAccountDropdown} li:nth-of-type(6) a`),
+            }
+        }
     },
 
     notificationBox: {
