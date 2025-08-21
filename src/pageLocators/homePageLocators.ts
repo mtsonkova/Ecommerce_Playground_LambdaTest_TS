@@ -52,7 +52,7 @@ export const HomePageLocators = (page:Page) => {
                 logIn: page.locator(`${myAccountDropdown} li:nth-of-type(1) a`),
                 register: page.locator(`${myAccountDropdown} li:nth-of-type(2) a`),
             },
-            loggedUser: {
+            regularUser: {
                 dashboard: page.locator(`${myAccountDropdown} li:nth-of-type(1) a`),
                 myOrder: page.locator(`${myAccountDropdown} li:nth-of-type(2) a`),
                 return: page.locator(`${myAccountDropdown} li:nth-of-type(3) a`),
