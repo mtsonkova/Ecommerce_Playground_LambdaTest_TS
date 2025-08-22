@@ -5,4 +5,5 @@ export const LoginPageLocators = (page:Page) => ({
  password: page.locator('#input-password'),
 loginBtn: page.locator('input[type="submit"]'),
 forgottenPassword: page.locator('div.form-group a'),
+errorMsg: page.locator('div#account-login div.alert'),
 });

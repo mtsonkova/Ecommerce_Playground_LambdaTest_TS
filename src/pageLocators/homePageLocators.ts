@@ -47,7 +47,7 @@ export const HomePageLocators = (page:Page) => {
         megaMenu: page.getByText(' Mega Menu'),
         addOns: page.getByText(' AddOns'),
         myAccount: page.getByText(' My account'),
-        myAcocuntMenu: {
+        myAccountMenu: {
             guestUser: {
                 logIn: page.locator(`${myAccountDropdown} li:nth-of-type(1) a`),
                 register: page.locator(`${myAccountDropdown} li:nth-of-type(2) a`),
