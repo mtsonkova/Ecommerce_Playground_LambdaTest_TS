@@ -1,7 +1,5 @@
-// 
-baseUrl: https://ecommerce-playground.lambdatest.io/
-
-test Products: 
+Available Products for trading in the system:
+ 
 HP LP3065
 iPod Nano
 HTC Touch HD
