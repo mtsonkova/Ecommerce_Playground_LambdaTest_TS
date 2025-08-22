@@ -1,6 +1,8 @@
 [
-    {
-        "email": "samgreen@test.qa",
-        "password": "testuser"
-    }
+   {
+        "firstName": "Test",
+        "lastName": "User",
+        "phoneNumber": "123456789",
+        "password": "userPass"
+   }
 ]

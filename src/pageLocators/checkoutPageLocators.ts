@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 export const CheckoutPageLocators = (page: Page) => {
     const cartTable = 'div#checkout-cart table';

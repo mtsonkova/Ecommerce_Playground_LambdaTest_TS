@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 export const ComparePageLocators = (page: Page) => ({
 title: page.locator('h1.h4'),

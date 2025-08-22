@@ -1,4 +1,4 @@
-import {Page} from '@playwright/test';
+import type {Page} from '@playwright/test';
 
 export const WishlistLocators = (page: Page) => {
     const products =  'table.table.border tbody tr';

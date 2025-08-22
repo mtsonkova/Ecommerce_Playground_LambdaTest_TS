@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 export const RegisterPageLocators = (page: Page) => ({
     firstName: page.locator('#input-firstname'),
@@ -13,4 +13,5 @@ export const RegisterPageLocators = (page: Page) => ({
     },
     privacyPolicyCheckbox: page.locator('#input-agree'),
     continueBtn: page.locator('input[type="Submit"]'),
+
 });

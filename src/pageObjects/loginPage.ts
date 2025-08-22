@@ -1,4 +1,4 @@
-import {Page} from '@playwright/test';
+import type {Page} from '@playwright/test';
 import {LoginPageLocators} from  '@src/pageLocators/account/loginPageLocators';
 
 export class LoginPage {
