@@ -2,7 +2,7 @@ import { test, expect } from '@src/fixtures/guestUserFixture';
 import messages from '@src/testData/messages.json' with { type: 'json' };
 import { generateRandomEmail } from '@src/helpers/userUtils';
 
-test.describe('Guest user functionality', () => {
+test.describe('Guest user functionality', {tag: '@smoke'}, () => {
   let userEmail: string;
 
   test('Should send email for further instructions to purchase product', async ({
