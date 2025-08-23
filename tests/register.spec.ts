@@ -22,7 +22,7 @@ test.describe('Verify register new user functionality', ()=> {
     test('Register new user',{tag: '@smoke'}, async() => {
         await homePage.clickOnMyAccount();
        const registerMsg =  await registerPage.registerUser();
-        const expectedMsg = messages[0].register.success;
+        const expectedMsg = messages.register.success;
        expect(registerMsg).toBe(expectedMsg);
     });    
 })
