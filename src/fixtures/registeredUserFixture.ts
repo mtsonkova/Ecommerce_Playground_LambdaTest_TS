@@ -4,6 +4,8 @@ import { RegisterPage } from '@src/pageObjects/registerPage';
 import { CartPage } from '@src/pageObjects/shoppingCart';
 import { CheckoutPage } from '@src/pageObjects/checkoutPage';
 import { ConfirmOrderPage } from '@src/pageObjects/confirmOrderPage';
+import { CheckoutSuccessPage } from '@src/pageObjects/checkoutSuccessPage';
+import { OrderHistoryPage } from '@src/pageObjects/orderHistoryPage';
 
 // Define a type for the fixtures
 type PageObjects = {
@@ -14,6 +16,8 @@ type PageObjects = {
   cartPage: CartPage;
   checkoutPage: CheckoutPage;
   confirmOrderPage: ConfirmOrderPage;
+  checkoutSuccessPage: CheckoutSuccessPage;
+  orderHistotyPage: OrderHistoryPage;
 };
 
 // Extend the base test to include your fixtures
@@ -42,6 +46,12 @@ export const test = base.extend<PageObjects>({
   },
   confirmOrderPage: async ({page}, use) => {
     await use(new ConfirmOrderPage(page));
+  },
+  checkoutSuccessPage: async ({page}, use) => {
+    await use(new CheckoutSuccessPage(page));
+  },
+  orderHistotyPage: async ({page}, use) => {
+    await use(new OrderHistoryPage(page));
   }
 });
 

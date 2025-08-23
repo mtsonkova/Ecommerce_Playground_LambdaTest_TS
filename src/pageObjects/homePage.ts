@@ -15,7 +15,7 @@ async clickOnMyAccount() {
 }
 
 async clickOnHome() {
-    await this.homePageLocators.mainMenu.home.click();
+    await this.homePageLocators.mainMenu.home.nth(0).click({force:true});
 }
 
 async searchForProduct(productName: string): Promise<void> {
@@ -47,5 +47,10 @@ async goToShoppingCart() {
 
 async goToCheckout() {
     await this.homePageLocators.notificationPopup.body.checkoutBtn.click();
+}
+
+async goToOrderHistpry() {
+    await this.homePageLocators.mainMenu.myAccount.nth(1).hover();
+    await this.homePageLocators.mainMenu.myAccountMenu.regularUser.myOrder.click();
 }
 }

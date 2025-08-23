@@ -11,5 +11,9 @@ export class CheckoutSuccessPage {
         this.checkoutSuccessLocators = CheckoutSuccessLocators(page);
     }
 
+    async clickContinue() {
+        await this.checkoutSuccessLocators.continueBtn.click();
+    }
+
     
 }
