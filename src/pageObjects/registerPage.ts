@@ -18,12 +18,12 @@ export class RegisterPage{
 
     async registerUser(): Promise<string | null> {
         await this.accountPageLocators.register.click();
-        await this.registerPageLocators.firstName.fill(userData[0].firstName);
-        await this.registerPageLocators.lastName.fill(userData[0].lastName);
+        await this.registerPageLocators.firstName.fill(userData.firstName);
+        await this.registerPageLocators.lastName.fill(userData.lastName);
         await this.registerPageLocators.email.fill(this.email);
-        await this.registerPageLocators.telephone.fill(userData[0].phoneNumber);
-        await this.registerPageLocators.password.fill(userData[0].password);
-        await this.registerPageLocators.confirmPassword.fill(userData[0].password);
+        await this.registerPageLocators.telephone.fill(userData.phoneNumber);
+        await this.registerPageLocators.password.fill(userData.password);
+        await this.registerPageLocators.confirmPassword.fill(userData.password);
 
         await this.registerPageLocators.privacyPolicyCheckbox.check({force: true});
         await this.registerPageLocators.continueBtn.click();

@@ -6,6 +6,14 @@
     
     "shoppingCart": {
         "outOfStock": " Products marked with *** are not available in the desired quantity or not in stock!"
+    },
+
+    "enquiry": {
+        "enquiryMsg": "Test enquiry message to request information on alternative ways to purchase products as guest"
+    },
+
+    "contactUs": {
+        "title": " Contact Us",
+        "text": "Your enquiry has been successfully sent to the store owner!"
     }
-    
 }

@@ -66,7 +66,7 @@ comments: page.locator('#input-comment'),
 newsletterSubscribtion: page.locator('#input-newsletter'),
 privacyPolicy: page.locator('#input-account-agree'),
 termsAndConditions: page.locator('#input-agree'),
-continueBtn: page.locator('button#button-save')
-
+continueBtn: page.locator('button#button-save'),
+contactUs:page.getByRole('link', {name: "contact us"}),
 };
 };

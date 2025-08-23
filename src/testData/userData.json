@@ -1,8 +1,9 @@
-[
-   {
+{
         "firstName": "Test",
         "lastName": "User",
         "phoneNumber": "123456789",
-        "password": "userPass"
+        "password": "userPass",
+        "address": "25 Shore Lane",
+        "city": "London",
+        "postalCode": "1111"
    }
-]
