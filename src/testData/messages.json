@@ -1,7 +1,11 @@
-[
-    {
+{
     "register": {
         "success": " Your Account Has Been Created!"
+    },
+
+    
+    "shoppingCart": {
+        "outOfStock": " Products marked with *** are not available in the desired quantity or not in stock!"
     }
+    
 }
-]

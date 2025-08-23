@@ -7,6 +7,6 @@ iPod Nano
 HTC Touch HD
 iMac
 iPod Classic
-iPod Shuffle
-iPod Touch
+iPod Shuffle -> not available
+iPod Touch -> not available
 MacBook

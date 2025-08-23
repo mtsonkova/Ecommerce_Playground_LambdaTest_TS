@@ -15,7 +15,7 @@ test.describe('Guest user functionality', () => {
             homePage = new HomePage(page);
         });
         
-    test('Should purchase products successfully - qty increase in cart', async () => {
+    test('Should purchase out of stock product - expect warning message in cart', async () => {
         await homePage.searchForProduct('iPod Shuffle');
         await homePage.addProductToCart(0);
        await homePage.goToShoppingCart();

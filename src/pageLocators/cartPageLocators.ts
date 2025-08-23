@@ -7,6 +7,7 @@ export const CartPageLocators = (page: Page) => {
 
     return {
     title: page.locator('h1.page-title.mb-3.h4'),
+    warningMsg: page.locator('div.alert.alert-danger'),
     tableRows: page.locator(`${productsTable} tbody tr`),
     tableRowData: {
         productName: page.locator('td:nth-of-type(2)'),
