@@ -1,6 +1,7 @@
 {
     "register": {
-        "success": " Your Account Has Been Created!"
+        "success": " Your Account Has Been Created!",
+        "failure": ""
     },
 
     
@@ -15,5 +16,9 @@
     "contactUs": {
         "title": " Contact Us",
         "text": "Your enquiry has been successfully sent to the store owner!"
+    },
+
+    "confirmOrder": {
+        "success": " Your order has been placed!"
     }
 }

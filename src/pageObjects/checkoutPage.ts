@@ -35,6 +35,16 @@ export class CheckoutPage {
         await this.checkoutPageLocators.billingAddress.postalCode.fill(userData.postalCode);
     }
 
+    async checkoutAsRegisterUser() {
+        await this.checkoutPageLocators.personalDetails.firstName.fill(userData.firstName);
+        await this.checkoutPageLocators.personalDetails.lastName.fill(userData.lastName);
+        await this.checkoutPageLocators.billingAddress.address1.fill(userData.address);
+        await this.checkoutPageLocators.billingAddress.city.fill(userData.city);
+        await this.checkoutPageLocators.billingAddress.postalCode.fill(userData.postalCode);
+        await this.checkoutPageLocators.termsAndConditions.check();
+        await this.checkoutPageLocators.continueBtn.click();
+    }
+
 async closeAlertPopUp() {
   const dialog = await this.page.waitForEvent('dialog'); // Wait for alert
   console.log(`Dialog message: ${dialog.message()}`);

@@ -2,6 +2,8 @@ import {test, expect, Page } from '@playwright/test';
 import {HomePage} from '@src/pageObjects/homePage';
 import { RegisterPage} from '@src/pageObjects/registerPage';
 import messages from '@src/testData/messages.json' with {type: 'json'};
+import { generateRandomEmail } from "@src/helpers/userUtils";
+import loginCredentials from '@src/testData/loginCredentials.json' with {type: 'json'};
 
 
 test.describe('Verify register new user functionality', ()=> {
@@ -9,6 +11,7 @@ test.describe('Verify register new user functionality', ()=> {
      let registerPage: RegisterPage;
      let context;
      let page: Page;
+     let email: string;
 
      test.beforeEach('Initial setup', async ({browser}) => {
         context = await browser.newContext();
@@ -21,8 +24,16 @@ test.describe('Verify register new user functionality', ()=> {
 
     test('Register new user',{tag: '@smoke'}, async() => {
         await homePage.clickOnMyAccount();
-       const registerMsg =  await registerPage.registerUser();
+        email = generateRandomEmail();
+       const registerMsg =  await registerPage.registerUser(email);
         const expectedMsg = messages.register.success;
        expect(registerMsg).toBe(expectedMsg);
     });    
+
+    test('Register new user with existing email should trigger errror' ,{tag: '@smoke'}, async() => {
+        await homePage.clickOnMyAccount();
+       const registerMsg =  await registerPage.registerUser(loginCredentials.email);
+        const expectedMsg = messages.register.failure;
+       expect(registerMsg).toBe(expectedMsg);
+    });  
 })

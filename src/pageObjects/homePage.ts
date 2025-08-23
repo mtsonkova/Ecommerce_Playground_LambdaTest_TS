@@ -14,6 +14,10 @@ async clickOnMyAccount() {
     await this.homePageLocators.mainMenu.myAccount.last().click();   
 }
 
+async clickOnHome() {
+    await this.homePageLocators.mainMenu.home.click();
+}
+
 async searchForProduct(productName: string): Promise<void> {
     await this.homePageLocators.mainHeader.searchSection.searchField.first().fill(productName);
     await this.homePageLocators.mainHeader.searchSection.searchBtn.click();
