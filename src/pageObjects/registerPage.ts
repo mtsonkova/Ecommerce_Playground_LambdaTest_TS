@@ -28,4 +28,7 @@ export class RegisterPage{
         return await this.accountPageLocators.messages.successMsgAccountCreation.textContent();
     }
 
+    async getErrMsg() {
+        return await this.registerPageLocators.errorMessage.textContent();
+    }
 }

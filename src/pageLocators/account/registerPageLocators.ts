@@ -13,5 +13,5 @@ export const RegisterPageLocators = (page: Page) => ({
     },
     privacyPolicyCheckbox: page.locator('#input-agree'),
     continueBtn: page.locator('input[type="Submit"]'),
-
+    errorMessage: page.locator('div.alert-dismissible'),
 });

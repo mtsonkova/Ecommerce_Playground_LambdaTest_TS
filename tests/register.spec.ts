@@ -32,8 +32,9 @@ test.describe('Verify register new user functionality', ()=> {
 
     test('Register new user with existing email should trigger errror' ,{tag: '@smoke'}, async() => {
         await homePage.clickOnMyAccount();
-       const registerMsg =  await registerPage.registerUser(loginCredentials.email);
+        await registerPage.registerUser(loginCredentials.email);
+        const actualMsg = await registerPage.getErrMsg();
         const expectedMsg = messages.register.failure;
-       expect(registerMsg).toBe(expectedMsg);
+       expect(actualMsg).toContain(expectedMsg);
     });  
 })
