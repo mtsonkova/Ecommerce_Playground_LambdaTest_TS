@@ -14,4 +14,34 @@ async clickOnMyAccount() {
     await this.homePageLocators.mainMenu.myAccount.last().click();   
 }
 
+async searchForProduct(productName: string): Promise<void> {
+    await this.homePageLocators.mainHeader.searchSection.searchField.first().fill(productName);
+    await this.homePageLocators.mainHeader.searchSection.searchBtn.click();
+}
+
+async addProductToCart(index: number): Promise<void>{
+    await this.homePageLocators.productsSection.productsItems.nth(index).hover();
+    await this.homePageLocators.productsSection.productsActions.addToCartBtn.nth(index).hover();
+    await this.homePageLocators.productsSection.productsActions.addToCartBtn.nth(index).click({force: true});
+}
+
+async addProductToWishlist(index: number): Promise<void>{
+    await this.homePageLocators.productsSection.productsItems.nth(index).hover();
+    await this.homePageLocators.productsSection.productsActions.addToWishlistbtn.nth(index).hover();
+     await this.homePageLocators.productsSection.productsActions.addToWishlistbtn.nth(index).click({force: true});
+}
+
+async addProductToCompare(index: number): Promise<void>{
+    await this.homePageLocators.productsSection.productsItems.nth(index).hover();
+    await this.homePageLocators.productsSection.productsActions.compareBtn.nth(index).hover();
+    await this.homePageLocators.productsSection.productsActions.compareBtn.nth(index).click({force: true});
+}
+
+async goToShoppingCart() {
+    await this.homePageLocators.notificationPopup.body.viewCartBtn.click();
+}
+
+async goToCheckout() {
+    await this.homePageLocators.notificationPopup.body.checkoutBtn.click();
+}
 }

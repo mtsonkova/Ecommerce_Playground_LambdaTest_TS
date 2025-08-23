@@ -63,7 +63,7 @@ export const HomePageLocators = (page:Page) => {
         }
     },
 
-    notificationBox: {
+    notificationPopup: {
         header: {
             headerText: page.locator('div.toast-header span'),
             closeBtn: page.locator('div.toast-header button span'),
@@ -76,7 +76,7 @@ export const HomePageLocators = (page:Page) => {
     },
 
     productsSection: {
-        productsItems: page.locator('div.carousel-item'),
+        productsItems: page.locator('div.carousel-item.active'),
         productsActions: {
             addToCartBtn: page.locator(`${productsActions} button.btn.btn-cart`),
             addToWishlistbtn: page.locator(`${productsActions} button.btn.btn-wishlist`),
