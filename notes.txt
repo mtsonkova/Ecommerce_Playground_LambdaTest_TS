@@ -1,12 +1,13 @@
 // 
 baseUrl: https://ecommerce-playground.lambdatest.io/
 
+Products are available at index 1 in nth(1)
 test Products: 
 HP LP3065
 iPod Nano
 HTC Touch HD
-iMac
-iPod Classic
+iMac -> index 1
+iPod Classic -> index 1
 iPod Shuffle -> not available
 iPod Touch -> not available
-MacBook
+MacBook -> not available

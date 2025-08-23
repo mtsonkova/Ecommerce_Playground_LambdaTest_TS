@@ -35,6 +35,32 @@ export class CheckoutPage {
         await this.checkoutPageLocators.billingAddress.postalCode.fill(userData.postalCode);
     }
 
+    async checkoutAsRegisterUser() {
+        await this.checkoutPageLocators.personalDetails.firstName.fill(userData.firstName);
+        await this.checkoutPageLocators.personalDetails.lastName.fill(userData.lastName);
+        await this.checkoutPageLocators.billingAddress.address1.fill(userData.address);
+        await this.checkoutPageLocators.billingAddress.city.fill(userData.city);
+        await this.checkoutPageLocators.billingAddress.postalCode.fill(userData.postalCode);
+        await this.checkoutPageLocators.termsAndConditions.check({force:true});
+        await this.checkoutPageLocators.continueBtn.click();
+    }
+
+    async registerFromCheckoutPage(userEmail: string){
+        await this.checkoutPageLocators.personalDetails.firstName.fill(userData.firstName);
+        await this.checkoutPageLocators.personalDetails.lastName.fill(userData.lastName);
+        await this.checkoutPageLocators.personalDetails.email.fill(userEmail);
+        await this.checkoutPageLocators.personalDetails.telephone.fill(userData.phoneNumber);
+        await this.checkoutPageLocators.personalDetails.password.fill(userData.password);
+        await this.checkoutPageLocators.personalDetails.confirmPassword.fill(userData.password);
+        await this.checkoutPageLocators.billingAddress.address1.fill(userData.address);
+        await this.checkoutPageLocators.billingAddress.city.fill(userData.city);
+        await this.checkoutPageLocators.billingAddress.postalCode.fill(userData.postalCode);
+        await this.checkoutPageLocators.privacyPolicy.check({force:true});
+        await this.checkoutPageLocators.termsAndConditions.check({force:true});
+        await this.checkoutPageLocators.continueBtn.click();
+
+    }
+
 async closeAlertPopUp() {
   const dialog = await this.page.waitForEvent('dialog'); // Wait for alert
   console.log(`Dialog message: ${dialog.message()}`);
