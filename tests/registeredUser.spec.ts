@@ -15,6 +15,7 @@ test.describe('Newly Registered user functionality', {tag: '@smoke'}, () => {
     confirmOrderPage,
     checkoutSuccessPage,
     orderHistotyPage,   
+    orderPage
   }) => {
     await test.step('Register new user', async () => {
       await homePage.clickOnMyAccount();
@@ -36,7 +37,10 @@ test.describe('Newly Registered user functionality', {tag: '@smoke'}, () => {
     
     await test.step('View order on order history page', async() => {
       await homePage.goToOrderHistpry();
+      const orderId = await orderHistotyPage.getOrderId();
       await orderHistotyPage.viewOrder(0);
+      const orderIdFromOrderPage = await orderPage.getOrderIdData();
+      expect(orderIdFromOrderPage).toContain(orderId);
     })
   });
 
@@ -45,7 +49,8 @@ test.describe('Newly Registered user functionality', {tag: '@smoke'}, () => {
     checkoutPage,
     confirmOrderPage,
     checkoutSuccessPage,
-    orderHistotyPage,   
+    orderHistotyPage,
+    orderPage,   
   }) => {
     await test.step('Add product to Shopping cart', async () => {
         await homePage.searchForProduct('iPod Touch');
@@ -61,7 +66,10 @@ test.describe('Newly Registered user functionality', {tag: '@smoke'}, () => {
     
     await test.step('View order on order history page', async() => {
       await homePage.goToOrderHistpry();
-      await orderHistotyPage.viewOrder(0);
+     const orderId = await orderHistotyPage.getOrderId();
+     await orderHistotyPage.viewOrder(0);
+      const orderIdFromOrderPage = await orderPage.getOrderIdData();
+      expect(orderIdFromOrderPage).toContain(orderId);
     })
   });
 

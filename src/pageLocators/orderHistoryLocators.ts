@@ -3,7 +3,7 @@ import type { Page } from "@playwright/test";
 export const OrderHistoryLocators = (page: Page) => ({
     orderHistoryTitle: page.locator('h1.page-title.h3'),
     tableRows: page.locator('#content tbody tr'),
-    orderId: page.locator('#content tbody tr td').nth(0),
+    orderId: page.locator('div#content table tbody tr:first-child td:first-child'),
     customer:page.locator('#content tbody tr td').nth(1),
     numOfProducts:page.locator('#content tbody tr td').nth(2),
     status:page.locator('#content tbody tr td').nth(3),

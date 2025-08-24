@@ -14,5 +14,9 @@ export class OrderHistoryPage {
         await this.orderHistoryLocators.viewOrderBtn.nth(index).click();
     }
 
+    async getOrderId(): Promise<string | null> {
+        return await this.orderHistoryLocators.orderId.first().textContent();
+    }
+
 
 }

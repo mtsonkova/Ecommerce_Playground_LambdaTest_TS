@@ -6,6 +6,7 @@ import { CheckoutPage } from '@src/pageObjects/checkoutPage';
 import { ConfirmOrderPage } from '@src/pageObjects/confirmOrderPage';
 import { CheckoutSuccessPage } from '@src/pageObjects/checkoutSuccessPage';
 import { OrderHistoryPage } from '@src/pageObjects/orderHistoryPage';
+import { OrderPage } from '@src/pageObjects/orderPage';
 
 // Define a type for the fixtures
 type PageObjects = {
@@ -18,6 +19,7 @@ type PageObjects = {
   confirmOrderPage: ConfirmOrderPage;
   checkoutSuccessPage: CheckoutSuccessPage;
   orderHistotyPage: OrderHistoryPage;
+  orderPage: OrderPage;
 };
 
 // Extend the base test to include your fixtures
@@ -52,6 +54,9 @@ export const test = base.extend<PageObjects>({
   },
   orderHistotyPage: async ({page}, use) => {
     await use(new OrderHistoryPage(page));
+  },
+  orderPage: async ({page}, use) => {
+    await use(new OrderPage(page));
   }
 });
 
