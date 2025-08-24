@@ -53,4 +53,16 @@ async goToOrderHistpry() {
     await this.homePageLocators.mainMenu.myAccount.nth(1).hover();
     await this.homePageLocators.mainMenu.myAccountMenu.regularUser.myOrder.click();
 }
+
+async goToProductPage() {
+    await this.homePageLocators.productsSection.productsItems.nth(1).click({force:true});
+}
+
+async goToCompare() {
+    await this.homePageLocators.mainHeader.compareIcon.click({force: true});
+}
+
+async goToWishlist() {
+    await this.homePageLocators.mainHeader.favoritesIcon.click({force:true});
+}
 }

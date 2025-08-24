@@ -1,6 +1,7 @@
 import type {Page} from '@playwright/test';
 import { CheckoutPageLocators } from '@src/pageLocators/checkoutPageLocators';
 import userData from '@src/testData/userData.json' with {type: 'json'};
+import {convertStringPriceToNumber} from '@src/helpers/pricesUtils';
 
 
 export class CheckoutPage {
@@ -61,6 +62,10 @@ export class CheckoutPage {
 
     }
 
+    async checkoutAsExistingUser() {
+        await this.checkoutPageLocators.termsAndConditions.check({force:true});
+    }
+
 async closeAlertPopUp() {
   const dialog = await this.page.waitForEvent('dialog'); // Wait for alert
   console.log(`Dialog message: ${dialog.message()}`);
@@ -70,4 +75,21 @@ async closeAlertPopUp() {
  async clickOnContactUs() {
     await this.checkoutPageLocators.contactUs.nth(1).click({force: true});
   }
+
+  async updateProductQuantity({ index, qtyNumber }: { index: number; qtyNumber: string }): Promise<void> {
+    await this.checkoutPageLocators.checkoutCart.productQtyField.qty.nth(index).fill(qtyNumber);
+    await this.checkoutPageLocators.checkoutCart.productQtyField.updateBtn.click({force: true});
+  }
+
+ async getTotalPrice(): Promise<number | null> {
+  const totalPriceAsText = await this.checkoutPageLocators.checkoutCart.totalPrice.nth(0).textContent();
+
+  if (!totalPriceAsText) {
+    return null; // Element is missing or has no text
+  }
+
+  const totalPrice = convertStringPriceToNumber(totalPriceAsText.trim());
+  return totalPrice;
+}
+
 }

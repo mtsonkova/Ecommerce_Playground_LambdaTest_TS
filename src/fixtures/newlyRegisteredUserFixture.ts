@@ -1,6 +1,8 @@
 import { test as base, Page, BrowserContext } from '@playwright/test';
 import { HomePage } from '@src/pageObjects/homePage';
 import { RegisterPage } from '@src/pageObjects/registerPage';
+import { WishlistPage } from '@src/pageObjects/wishlistPage';
+import { ProductPage } from '@src/pageObjects/productPage';
 import { CartPage } from '@src/pageObjects/shoppingCart';
 import { CheckoutPage } from '@src/pageObjects/checkoutPage';
 import { ConfirmOrderPage } from '@src/pageObjects/confirmOrderPage';
@@ -14,6 +16,8 @@ type PageObjects = {
   page: Page;
   homePage: HomePage;
   registerPage: RegisterPage;
+  wishlistPage: WishlistPage;
+  productPage: ProductPage;
   cartPage: CartPage;
   checkoutPage: CheckoutPage;
   confirmOrderPage: ConfirmOrderPage;
@@ -40,6 +44,12 @@ export const test = base.extend<PageObjects>({
   registerPage: async ({page}, use) => {
     await use(new RegisterPage(page));
   },
+   wishlistPage: async({page}, use) => {
+    await use(new WishlistPage(page));
+   },
+    productPage: async({page}, use) => {
+        await use(new ProductPage(page));
+      },
   cartPage: async ({ page }, use) => {
     await use(new CartPage(page));
   },
