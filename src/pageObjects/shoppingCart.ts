@@ -11,8 +11,8 @@ export class CartPage {
         this.cartPageLocators = CartPageLocators(page);
     }
 
-    async increaseProductQty(qty: string) {
-        await this.cartPageLocators.tableRowData.quantity.qtyInput.fill(qty);
+    async increaseProductQty({ index, qtyNumber }: { index: number; qtyNumber: string }): Promise<void>  {
+        await this.cartPageLocators.tableRowData.quantity.qtyInput.nth(index).fill(qtyNumber);
         await this.cartPageLocators.tableRowData.quantity.updateBtn.click();
     }
 
@@ -26,8 +26,8 @@ export class CartPage {
         return price;
     }
 
-     async getTotalPrice(index: number): Promise<number> {
-        let priceAsText = await this.cartPageLocators.tablePrices.total.nth(index).textContent();
+     async getTotalPrice(): Promise<number> {
+        let priceAsText = await this.cartPageLocators.tablePrices.total.textContent();
         let price = convertStringPriceToNumber(priceAsText ?? '');
         return price;
     }

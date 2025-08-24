@@ -2,6 +2,9 @@ import { test as base, Page, BrowserContext } from '@playwright/test';
 import loginCredentials from '@src/testData/loginCredentials.json'
 import { HomePage } from '@src/pageObjects/homePage';
 import { LoginPage } from '@src/pageObjects/loginPage';
+import { ProductPage } from '@src/pageObjects/productPage';
+import { ComparePage } from '@src/pageObjects/compareProducts';
+import { WishlistPage} from '@src/pageObjects/wishlistPage';
 import { CartPage } from '@src/pageObjects/shoppingCart';
 import { CheckoutPage } from '@src/pageObjects/checkoutPage';
 import { ConfirmOrderPage } from '@src/pageObjects/confirmOrderPage';
@@ -15,6 +18,9 @@ type PageObjects = {
   page: Page;
   homePage: HomePage;
   loginPage: LoginPage;
+  productPage: ProductPage;
+  comparePage: ComparePage;
+  wishlistPage: WishlistPage;
   cartPage: CartPage;
   checkoutPage: CheckoutPage;
   confirmOrderPage: ConfirmOrderPage;
@@ -33,10 +39,10 @@ export const test = base.extend<PageObjects>({
   page: async ({ context }, use) => {
     const page = await context.newPage();
     await page.goto('/index.php?route=account/login');
-    page.fill('#input-email', loginCredentials.email);
-    page.fill('#input-password', loginCredentials.password);
-    page.click('input[type="submit"]');
-    await page.waitForSelector('aside')
+    await page.fill('#input-email', loginCredentials.email);
+    await page.fill('#input-password', loginCredentials.password);
+    await page.click('input[type="submit"]');
+    await page.waitForURL('/index.php?route=account/account');
     await use(page);
   },
   
@@ -45,6 +51,15 @@ export const test = base.extend<PageObjects>({
   },
   loginPage: async ({page}, use) => {
     await use(new LoginPage(page));
+  },
+  productPage: async({page}, use) => {
+    await use(new ProductPage(page));
+  },
+  comparePage: async({page}, use) => {
+    await use(new ComparePage(page));
+  },
+  wishlistPage: async({page}, use) => {
+    await use(new WishlistPage(page));
   },
   cartPage: async ({ page }, use) => {
     await use(new CartPage(page));

@@ -15,5 +15,9 @@ export class CheckoutSuccessPage {
         await this.checkoutSuccessLocators.continueBtn.click();
     }
 
+    async getHeaderText(): Promise<string | null> {
+        return await this.checkoutSuccessLocators.checkoutSuccessTitle.textContent();
+    }
+
     
 }
