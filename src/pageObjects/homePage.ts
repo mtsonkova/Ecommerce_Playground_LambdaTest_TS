@@ -20,7 +20,7 @@ async clickOnHome() {
 
 async searchForProduct(productName: string): Promise<void> {
     await this.homePageLocators.mainHeader.searchSection.searchField.first().fill(productName);
-    await this.homePageLocators.mainHeader.searchSection.searchBtn.click();
+    await this.homePageLocators.mainHeader.searchSection.searchBtn.first().click();
 }
 
 async addProductToCart(index: number): Promise<void>{
@@ -64,5 +64,9 @@ async goToCompare() {
 
 async goToWishlist() {
     await this.homePageLocators.mainHeader.favoritesIcon.click({force:true});
+}
+
+async closePopUp() {
+    await this.homePageLocators.notificationPopup.header.closeBtn.click({force:true});
 }
 }

@@ -15,7 +15,7 @@ export const HomePageLocators = (page:Page) => {
             searchBtn: page.getByRole('button', {name: 'Search'}),
         },
         resultItems: page.locator(`${searchResults} li`),
-        compareIcon: page.locator('span[data-original-title= "Compare"]'),
+        compareIcon: page.locator('a[aria-label="Compare"]'),
         favoritesIcon: page.locator('span[data-original-title="Wishlist"]'),
         shoppingCartIcon: page.locator('div.cart-icon:nth-of-type(1) div.icon.svg-icon'),
         shoppingCartBadge: page.locator('div.cart-icon:nth-of-type(1) span:nth-of-type(1)'),

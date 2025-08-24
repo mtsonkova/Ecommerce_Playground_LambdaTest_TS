@@ -18,10 +18,13 @@ test.describe('Exisiting user functionality', async() => {
             await test.step('Add product from compare page', async() => {
                 await homePage.searchForProduct('iPod Nano');
                await homePage.addProductToCompare(1);
+               await homePage.closePopUp();
                 await homePage.searchForProduct('iPod Classic');
                await homePage.addProductToCompare(1);
+                 await homePage.closePopUp();
                await homePage.goToCompare();
                await comparePage.addProductToCart();
+               await homePage.goToShoppingCart();
                 
             });
 

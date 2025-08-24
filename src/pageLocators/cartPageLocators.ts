@@ -27,7 +27,7 @@ export const CartPageLocators = (page: Page) => {
         total: page.locator(`${tablePrices} tr:nth-of-type(4) td:nth-of-type(2)`),
     },
     continueShopingBtn: page.getByRole('link', {name: 'Continue Shopping'}),
-    chekoutBtn: page.getByRole('link', {name: 'Checkout'}),
+    chekoutBtn: page.locator('div.buttons a:last-child'),
     };
 
 }

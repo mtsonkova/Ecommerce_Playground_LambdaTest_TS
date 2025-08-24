@@ -149,9 +149,5 @@ test.describe('Newly Registered user functionality', {tag: '@smoke'}, () => {
                 expect (actualMessage).toContain(expectedMessage);
             });
 
-    })
-
-
-
-  
+    })  
 });
