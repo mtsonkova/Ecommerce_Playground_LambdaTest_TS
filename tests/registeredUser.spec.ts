@@ -1,6 +1,5 @@
 import { test, expect } from "@src/fixtures/newlyRegisteredUserFixture";
 import { generateRandomEmail } from "@src/helpers/userUtils";
-import { addProductToComparePage } from "@src/api/productApis";
 import messages from "@src/testData/messages.json";
 
 test.describe("Newly Registered user functionality", { tag: "@smoke" }, () => {
