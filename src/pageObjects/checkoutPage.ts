@@ -64,6 +64,7 @@ export class CheckoutPage {
 
     async checkoutAsExistingUser() {
         await this.checkoutPageLocators.termsAndConditions.check({force:true});
+        await this.checkoutPageLocators.continueBtn.click();
     }
 
 async closeAlertPopUp() {
@@ -78,7 +79,7 @@ async closeAlertPopUp() {
 
   async updateProductQuantity({ index, qtyNumber }: { index: number; qtyNumber: string }): Promise<void> {
     await this.checkoutPageLocators.checkoutCart.productQtyField.qty.nth(index).fill(qtyNumber);
-    await this.checkoutPageLocators.checkoutCart.productQtyField.updateBtn.click({force: true});
+    await this.checkoutPageLocators.checkoutCart.productQtyField.updateBtn.nth(index).click({force: true});
   }
 
  async getTotalPrice(): Promise<number | null> {

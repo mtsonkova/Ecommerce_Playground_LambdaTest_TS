@@ -9,12 +9,14 @@ import { ConfirmOrderPage } from '@src/pageObjects/confirmOrderPage';
 import { CheckoutSuccessPage } from '@src/pageObjects/checkoutSuccessPage';
 import { OrderHistoryPage } from '@src/pageObjects/orderHistoryPage';
 import { OrderPage } from '@src/pageObjects/orderPage';
+import { ComparePage } from '@src/pageObjects/compareProducts';
 
 // Define a type for the fixtures
 type PageObjects = {
   context: BrowserContext;
   page: Page;
   homePage: HomePage;
+  comparePage: ComparePage
   registerPage: RegisterPage;
   wishlistPage: WishlistPage;
   productPage: ProductPage;
@@ -46,6 +48,9 @@ export const test = base.extend<PageObjects>({
   },
    wishlistPage: async({page}, use) => {
     await use(new WishlistPage(page));
+   },
+   comparePage: async({page}, use) => {
+    await use(new ComparePage(page));
    },
     productPage: async({page}, use) => {
         await use(new ProductPage(page));

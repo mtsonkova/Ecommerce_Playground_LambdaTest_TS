@@ -36,16 +36,11 @@ export const test = base.extend<PageObjects>({
     await use(context);
     await context.close();
   },
-  page: async ({ context }, use) => {
+   page: async ({ context }, use) => {
     const page = await context.newPage();
-    await page.goto('/index.php?route=account/login');
-    await page.fill('#input-email', loginCredentials.email);
-    await page.fill('#input-password', loginCredentials.password);
-    await page.click('input[type="submit"]');
-    await page.waitForURL('/index.php?route=account/account');
+    await page.goto('/');
     await use(page);
-  },
-  
+  },  
   homePage: async ({ page }, use) => {
     await use(new HomePage(page));
   },
