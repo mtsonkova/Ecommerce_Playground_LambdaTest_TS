@@ -1,0 +1,41 @@
+
+Running 12 tests using 1 worker
+
+[1A[2K[1/12] [chromium] › tests/existingUser.spec.ts:9:8 › Exisiting user functionality › Purchase product from products page
+[1A[2K  1) [chromium] › tests/existingUser.spec.ts:9:8 › Exisiting user functionality › Purchase product from products page › Edit Order -> update qty from checkout page 
+
+    Error: locator.click: Target page, context or browser has been closed
+    Call log:
+    [2m  - waiting for locator('div.input-group-append button[data-original-title="Update"]').first()[22m
+
+
+       at ../src/pageObjects/checkoutPage.ts:82
+
+      80 |   async updateProductQuantity({ index, qtyNumber }: { index: number; qtyNumber: string }): Promise<void> {
+      81 |     await this.checkoutPageLocators.checkoutCart.productQtyField.qty.nth(index).fill(qtyNumber);
+    > 82 |     await this.checkoutPageLocators.checkoutCart.productQtyField.updateBtn.nth(index).click({force: true});
+         |                                                                                       ^
+      83 |   }
+      84 |
+      85 |  async getTotalPrice(): Promise<number | null> {
+        at CheckoutPage.updateProductQuantity (/home/mts/Desktop/TestAutomation/Ecommerce_Playground_LambdaTest_TS/src/pageObjects/checkoutPage.ts:82:87)
+        at /home/mts/Desktop/TestAutomation/Ecommerce_Playground_LambdaTest_TS/tests/existingUser.spec.ts:38:7
+        at /home/mts/Desktop/TestAutomation/Ecommerce_Playground_LambdaTest_TS/tests/existingUser.spec.ts:36:5
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/existingUser-Exisiting-use-ebcdd--product-from-products-page-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/existingUser-Exisiting-use-ebcdd--product-from-products-page-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[31mTesting stopped early after 1 maximum allowed failures.[39m
+
+[1A[2K  1 failed
+    [chromium] › tests/existingUser.spec.ts:9:8 › Exisiting user functionality › Purchase product from products page 
+  11 did not run
+  1 error was not a part of any test, see above for details
+
+[36m  Serving HTML report at http://localhost:9323. Press Ctrl+C to quit.[39m

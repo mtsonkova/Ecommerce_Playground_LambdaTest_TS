@@ -41,7 +41,8 @@ test.describe('Exisiting user functionality', async() => {
     });
 
     await test.step("Complete checkout process", async () => {
-      await checkoutPage.checkoutAsExistingUser();
+      await checkoutPage.acceptTermsAndConfitions();
+      await checkoutPage.clickOnContinueBtn();
       await confirmOrderPage.confirmOrder();
       const actualMessage = await checkoutSuccessPage.getHeaderText();
       const expectedMessage = messages.confirmOrder.success;

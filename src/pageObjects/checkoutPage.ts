@@ -74,12 +74,12 @@ async closeAlertPopUp() {
 }
 
  async clickOnContactUs() {
-    await this.checkoutPageLocators.contactUs.nth(1).click({force: true});
+    await this.checkoutPageLocators.contactUs.nth(1).click();
   }
 
   async updateProductQuantity({ index, qtyNumber }: { index: number; qtyNumber: string }): Promise<void> {
     await this.checkoutPageLocators.checkoutCart.productQtyField.qty.nth(index).fill(qtyNumber);
-    await this.checkoutPageLocators.checkoutCart.productQtyField.updateBtn.nth(index).click({force: true});
+    await this.checkoutPageLocators.checkoutCart.productQtyField.updateBtn.nth(index).click({force:true});
   }
 
  async getTotalPrice(): Promise<number | null> {
@@ -93,4 +93,11 @@ async closeAlertPopUp() {
   return totalPrice;
 }
 
+async clickOnContinueBtn() {
+  await this.checkoutPageLocators.continueBtn.click();
+}
+
+async acceptTermsAndConfitions() {
+     await this.checkoutPageLocators.termsAndConditions.check({force:true});
+}
 }
